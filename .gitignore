@@ -1,0 +1,8 @@
+build/
+dist/
+
+venv/
+.vscode/
+
+test.py
+build.sh
