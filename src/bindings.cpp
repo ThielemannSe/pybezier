@@ -40,6 +40,8 @@ PYBIND11_MODULE(pybezier, m) {
         .def("sample_equidistant", &PyBezier::Bezier::sample_equidistant)
         .def("curvature", &PyBezier::Bezier::curvature)
         .def("derivative", &PyBezier::Bezier::derivative)
+        .def("startpoint", &PyBezier::Bezier::startpoint)
+        .def("endpoint", &PyBezier::Bezier::endpoint)
         .def("__repr__", 
             [](const PyBezier::Bezier& b) {
                 return "Bezier( order=" + std::to_string(b.order()) + " )";

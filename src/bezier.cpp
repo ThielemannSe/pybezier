@@ -37,6 +37,18 @@ float Bezier::length(float dx) const
 }
 
 
+Vec2 Bezier::startpoint() const
+{
+    return m_points.front();
+}
+
+
+Vec2 Bezier::endpoint() const
+{
+    return m_points.back();
+}
+
+
 Vec2 Bezier::at(float t) const
 {
     if ( 1 < t || t < 0)

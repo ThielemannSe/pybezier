@@ -20,6 +20,9 @@ public:
     int order() const;
     float length(float dx) const;
 
+    Vec2 startpoint() const;
+    Vec2 endpoint() const;
+
     Vec2 at(float t) const;
     std::vector<Vec2> multiple_at(std::vector<float> ts) const;
     
@@ -27,6 +30,7 @@ public:
 
     float curvature(float t) const;
 
+    // ? schouldn't it be protected?
     Vec2 derivative(float t) const;
     Vec2 derivative2(float t) const;
 
@@ -36,16 +40,8 @@ protected:
     std::vector<float>create_LUT( float dx ) const;
 
     float dist_to_T(float distance, const std::vector<float>& LUT) const;
-
-    
 };
 
-
-class LinearBezier: public Bezier 
-{
-    LinearBezier(std::vector<Vec2> points);
-    LinearBezier(std::vector<std::vector<float>> points);
-};
 
 } // namespace PyBezier
 
