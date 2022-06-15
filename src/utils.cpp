@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 namespace PyBezier {
 namespace utils {
@@ -34,10 +35,10 @@ float remap(float value, float old_min, float old_max, float new_min, float new_
 }
 
 std::vector<float> range(float min, float max, float dx)
-{
+{   
     float interval = max - min;
     int n = interval / dx;
-
+    
     std::vector<float> res(n);
     
     for (int i=0; i < n; ++i)

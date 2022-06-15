@@ -2,7 +2,6 @@
 #define BEZIER_HPP
 
 #include <vector>
-
 #include <vec2.hpp>
 
 namespace PyBezier {

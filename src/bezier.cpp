@@ -88,15 +88,13 @@ float Bezier::_B(float t, int n, int k) const
 
 std::vector<float> Bezier::create_LUT(float dx) const
 {   
-    // if (fmod(1, dx) != 0)
-    //     throw std::invalid_argument("1 \% dx == 0");
-
     std::vector<float> ts = utils::range(0, 1+dx, dx);
+
     std::vector<Vec2> points = multiple_at(ts);
     int n = points.size();
     std::vector<float> d(n, 0.0);
 
-    float length = 0;
+    float length = 0.0;
 
     for (int i=1; i < n; ++i)
     {
@@ -135,10 +133,12 @@ float Bezier::dist_to_T(float distance, const std::vector<float>& LUT) const
 
 
 std::vector<Vec2> Bezier::sample_equidistant(float step, float dx, float overhead) const
-{
+{   
     std::vector<float> LUT = create_LUT(dx);
 
     std::vector<float> distances = utils::range( (0 + overhead), LUT.back(), step );
+
+    std::cout << "last distance: " << distances.back() << std::endl;
 
     int n = distances.size();
     std::vector<Vec2> points(n);
