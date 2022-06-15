@@ -26,7 +26,7 @@ class TestBezier(unittest.TestCase):
             
             # number of sampled points must be less or equal than the length of the curve
             # devided by the step width 
-            self.assertLessEqual(len(points), length/step_width, "Number of sampled points is to large")
+            self.assertLessEqual(len(points), length/step_width+1, "Number of sampled points is to large")
 
             # If step_width is less than length of the curve, at least one point must be returned
             if step_width < length:
