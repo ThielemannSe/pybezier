@@ -28,6 +28,8 @@ for p in points:
 
 curve = curves[0]
 
+print(f'LENGTH=Cur')
+
 sample = curve.sample_equidistant(100, 0.001, 0)
 
 last = sample[-1]

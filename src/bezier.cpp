@@ -131,14 +131,22 @@ float Bezier::dist_to_T(float distance, const std::vector<float>& LUT) const
 }
 
 
-
 std::vector<Vec2> Bezier::sample_equidistant(float step, float dx, float overhead) const
 {   
+    // std::cout << "sampling equidistant" << std::endl;
     std::vector<float> LUT = create_LUT(dx);
 
-    std::vector<float> distances = utils::range( (0 + overhead), LUT.back(), step );
+    // std::vector<float> distances = utils::range( (0 + overhead), LUT.back(), step );
 
-    std::cout << "last distance: " << distances.back() << std::endl;
+    std::vector<float> distances;
+    float length = LUT.back();
+
+    float current_distance = 0.0;
+    while (current_distance <= length)
+    {
+        distances.push_back(current_distance);
+        current_distance += step;
+    }
 
     int n = distances.size();
     std::vector<Vec2> points(n);
@@ -151,6 +159,7 @@ std::vector<Vec2> Bezier::sample_equidistant(float step, float dx, float overhea
     }
     return points;
 }
+
 
 
 Vec2 Bezier::derivative(float t) const
