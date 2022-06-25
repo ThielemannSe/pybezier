@@ -141,7 +141,7 @@ std::vector<Vec2> Bezier::sample_equidistant(float step, float dx, float overhea
     std::vector<float> distances;
     float length = LUT.back();
 
-    float current_distance = 0.0;
+    float current_distance = overhead;
     while (current_distance <= length)
     {
         distances.push_back(current_distance);
