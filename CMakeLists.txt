@@ -24,9 +24,4 @@ pybind11_add_module( ${CMAKE_PROJECT_NAME}
     src/bezier.cpp    
 )
 
-if(OpenMP_CXX_FOUND)
-    message("-- found OpenMP")
-    target_link_libraries(${CMAKE_PROJECT_NAME} PUBLIC OpenMP::OpenMP_CXX)
-endif()
-
 include_directories(include)
